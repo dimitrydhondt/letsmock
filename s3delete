@@ -1,0 +1,4 @@
+#!/bin/bash
+s3cmd del --force -r s3://letsmock
+s3cmd rb --bucket-location=EU s3://letsmock
+s3cmd mb --bucket-location=EU s3://letsmock

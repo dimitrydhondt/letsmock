@@ -1,0 +1,4 @@
+#!/bin/bash
+#./bower2js
+s3cmd sync --acl-public --guess-mime-type public/ s3://letsmock/
+s3cmd ws-create --ws-index=index.html s3://letsmock
