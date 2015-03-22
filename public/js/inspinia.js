@@ -6,12 +6,6 @@
  */
 
 $(document).ready(function () {
-
-    // Append config box / Only for demo purpose
-    $.get("views/skin-config.html", function (data) {
-        $('body').append(data);
-    });
-
     // Full height of sidebar
     function fix_height() {
         var heightWithoutNavbar = $("body > #wrapper").height() - 61;
