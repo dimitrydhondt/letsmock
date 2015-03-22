@@ -29,9 +29,9 @@ function config($stateProvider, $urlRouterProvider, $ocLazyLoadProvider) {
             url: '/messages.html',
             templateUrl: 'messages/messages.html'
         })
-        .state('app.messages_detail', {
-            url: '/messages_detail.html',
-            templateUrl: 'messages/messages_detail.html'
+        .state('app.message_detail', {
+            url: '/message_detail.html',
+            templateUrl: 'messages/message_detail.html'
         })
         .state('app.members', {
             url: '/members.html',
