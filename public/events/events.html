@@ -82,7 +82,16 @@
                         </div>
                     </div>
                     <br>
-                </div>
+                </div> <!-- type : person -->
+                
+                <div ng-show="event.type == 'event'">
+                    <div class="widget lazur-bg">
+                        <h2>Evenement : {{event.title}}</h2>
+                        <p>{{event.message}}</p>
+                        <div><img class="img-circle" src="img/a7.jpg" width="30" style="margin-right: 8px">{{event.person}}</div>
+                        <div><a>Inschrijven</a></div>
+                    </div> 
+                </div> <!-- type: event -->
             </div>
             <!-- ng-repeat -->
         </div>
