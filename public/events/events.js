@@ -34,7 +34,7 @@ function EventsController() {
             img: "img/a5.jpg",
             demand: true,
             title: "Defecte schakelaar",
-            message: "Eén van de schakelaar in mijn living is defect... Wie zou dat voor mij kunnen herstellen ?",
+            message: "Eén van de schakelaars in mijn living is defect... Wie zou dat voor mij kunnen herstellen ?",
             responses: [
                 {
                     person: "Edwin",
