@@ -21,9 +21,9 @@ function config($stateProvider, $urlRouterProvider, $ocLazyLoadProvider) {
             url: "/app",
             templateUrl: "common/content.html",
         })
-        .state('app.start', {
+        .state('app.events', {
             url: '/start.html',
-            templateUrl: 'start/start.html'
+            templateUrl: 'events/events.html'
         })
         .state('app.messages', {
             url: '/messages.html',

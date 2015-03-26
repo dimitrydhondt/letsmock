@@ -1,0 +1,14 @@
+.lets-message {
+  background-color: #ffffff;
+  color: inherit;
+  padding: 10px 10px 10px 10px;
+  border-color: #e7eaec;
+  border-image: none;
+  border-style: solid solid none;
+  border-width: 1px 0px;
+}
+
+.lets-message-responses {
+    padding-top: 10px;
+    padding-left: 40px;
+}

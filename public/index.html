@@ -24,13 +24,14 @@
     <!-- Main Inspinia CSS files -->
     <link href="css/animate.css" rel="stylesheet">
     <link id="loadBefore" href="css/style.css" rel="stylesheet">
+    <link href="css/custom.css" rel="stylesheet">
 
 
 </head>
 
 <!-- ControllerAs syntax -->
 <!-- Main controller with serveral data used in Inspinia theme on diferent view -->
-<body ng-controller="MainCtrl as main">
+<body ng-controller="MainController as main">
 
 <!-- Main view  -->
 <div ui-view></div>
@@ -71,8 +72,9 @@
 <script src="js/app.js"></script>
 <script src="js/config.js"></script>
 <script src="js/translations.js"></script>
-<script src="js/directives.js"></script>
+<!--script src="js/directives.js"></script-->
 <script src="js/controllers.js"></script>
+<script src="events/events.js"></script>
 
 </body>
 </html>
