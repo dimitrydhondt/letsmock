@@ -60,9 +60,9 @@ function EventsController() {
         {
             type: "event",
             person: "Rita Strooband",
-            date: "2015-04-04",
+            date: "4 april 2015",
             title: "Indisch Veggie Etentje",
-            message: "Wie heeft er zin om mee aan te schijven aan ons vegetarisch Indisch buffet ? Er is plaats voor maximum 16 personen."
+            message: "Wie heeft er zin om mee aan te schuiven aan ons vegetarisch Indisch buffet ? Er is plaats voor maximum 16 personen."
         },
         {
             type: "message",
@@ -70,7 +70,7 @@ function EventsController() {
             img: "img/a2.jpg",
             offer: true,
             title: "Bio asperges",
-            message: "Ik heb, zoals elk voorjaar, een overproductie aan zelfgekweekte bio-asperges. Wie wil er een bussel ? Ik kan ze komen brengen (per fiest)",
+            message: "Ik heb, zoals elk voorjaar, een overproductie aan zelfgekweekte bio-asperges. Wie wil er een bussel ? Ik kan ze komen brengen (per fietd). 5 duimkes / bussel.",
         },
     ];
 };

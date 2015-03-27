@@ -18,7 +18,7 @@
             <div ng-repeat="event in c.events">
 
                 <div ng-show="event.type === 'message'">
-                    <div class="lets-message">
+                    <div class="lets-message" ng-hide="event.$read">
                         <img alt="image" class="img-circle pull-left" src="{{event.img}}" width="40" style="margin-right: 8px">
 
                         <div class="media-body ">
@@ -32,12 +32,27 @@
                                     <img class="img-circle" src="img/profile_small.jpg" width="15" style="margin-right: 8px; margin-bottom: 4px;"> <i>{{response.person}}</i> : {{response.message}}
                                 </div>
                                 
-                                <div ng-show="event.enteringResponse">
+                                <div ng-show="event.$enteringResponse">
                                     <textarea class="form-control" placeholder="Geef je reactie in..."></textarea>
+                                    <div style="margin-top: 4px">
+                                        <a class="btn btn-primary btn-xs" ng-click="event.$enteringResponse = false">Sturen</a>
+                                        <a class="btn btn-primary btn-xs" ng-click="event.$enteringResponse = false">Annuleren</a>
+                                    </div>
+                                </div>
+                                <div ng-show="event.$enteringTransaction">
+                                    <small>
+                                        Ik stuur <input type="text" size="3"></text> duimkes naar {{event.person}}. 
+                                        <a class="btn btn-primary btn-xs" ng-click="event.$enteringTransaction = false">Sturen</a>
+                                        <a class="btn btn-primary btn-xs" ng-click="event.$enteringTransaction = false">Annuleren</a>
+                                    </small>
                                 </div>
                                 
                                 <div>
-                                    <a ng-click="event.enteringResponse = !event.enteringResponse">Reageren</a>
+                                    <a ng-click="event.$enteringResponse = true; event.$enteringTransaction = false;">Reageren</a>&nbsp;
+                                    <!--<a ng-click="event.$read = true">Gelezen</a>&nbsp;-->
+                                    <span style="margin-left: 8px">
+                                        <a ng-click="event.$enteringTransaction = true; event.$enteringResponse = false;">Waarderen</a>
+                                    </span>
                                 </div>
                             </div>
                         </small>
@@ -86,7 +101,7 @@
                 
                 <div ng-show="event.type == 'event'">
                     <div class="widget lazur-bg">
-                        <h2>Evenement : {{event.title}}</h2>
+                        <h2>{{event.date}} : {{event.title}}</h2>
                         <p>{{event.message}}</p>
                         <div><img class="img-circle" src="img/a7.jpg" width="30" style="margin-right: 8px">{{event.person}}</div>
                         <div><a>Inschrijven</a></div>
