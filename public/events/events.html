@@ -1,6 +1,12 @@
 <div class="wrapper wrapper-content animated fadeInRight" ng-controller="EventsController as c">
-    <div class="row">
+    <div class="row" ng-hide="c.classic">
         <div class="col-lg-10">
+            <div>
+                <i class="fa fa-cogs"></i>
+                <a ng-click="c.classic = !c.classic" ng-hide="c.classic"> Klassiek</a>
+                <a ng-click="c.classic = !c.classic" ng-show="c.classic"> Gebeurtenissen</a>
+            </div>
+            
             <!-- new message form -->
             <div class="chat-form">
                 <form role="form">
@@ -19,7 +25,7 @@
 
                 <div ng-show="event.type === 'message'">
                     <div class="lets-message" ng-hide="event.$read">
-                        <img alt="image" class="img-circle pull-left" src="{{event.img}}" width="40" style="margin-right: 8px">
+                        <img alt="image" class="img-circle pull-left" ng-src="{{event.img}}" width="40" style="margin-right: 8px">
 
                         <div class="media-body ">
                             <small class="pull-right text-navy">1 minuut geleden</small>
@@ -32,7 +38,7 @@
                                     <img class="img-circle" src="img/profile_small.jpg" width="15" style="margin-right: 8px; margin-bottom: 4px;"> <i>{{response.person}}</i> : {{response.message}}
                                 </div>
                                 
-                                <div ng-show="event.$enteringResponse">
+                                <div ng-show="event.$enteringResponse" class="animate-show">
                                     <textarea class="form-control" placeholder="Geef je reactie in..."></textarea>
                                     <div style="margin-top: 4px">
                                         <a class="btn btn-primary btn-xs" ng-click="event.$enteringResponse = false">Sturen</a>
@@ -133,5 +139,202 @@
             </div>
         </div>
     </div>
+
+<!--              -->
+<!-- Classic view -->
+<!--              -->
+
+    <div class="row" ng-show="c.classic">
+        <div class="col-lg-8">
+            <div>
+                <i class="fa fa-cogs"></i>
+                <a ng-click="c.classic = !c.classic" ng-hide="c.classic"> Klassiek</a>
+                <a ng-click="c.classic = !c.classic" ng-show="c.classic"> Gebeurtenissen</a>
+            </div>
+            
+            <!-- new message form -->
+            <div class="chat-form">
+                <form role="form">
+                    <div class="form-group">
+                        <textarea class="form-control" placeholder="Plaats een nieuw bericht..."></textarea>
+                    </div>
+                    <div class="text-right">
+                        <button type="submit" class="btn btn-sm btn-primary m-t-n-xs"><strong>Plaatsen</strong></button>
+                    </div>
+                    <br>
+                </form>
+            </div>
+            <!-- new message form -->
+
+            <h3>Vraag</h3>
+            <div ng-repeat="event in c.events">                
+                <div ng-show="event.type === 'message' && event.demand">
+                    <div class="lets-message" ng-hide="event.$read">
+                        <img alt="image" class="img-circle pull-left" ng-src="{{event.img}}" width="40" style="margin-right: 8px">
+
+                        <div class="media-body ">
+                            <small class="pull-right text-navy">1 minuut geleden</small>
+                            <strong>({{event.person}})</strong> <b>{{event.title}}</b> - {{event.message}}
+                        </div>
+
+                        <small class="text-muted">
+                            <div class="lets-message-responses">
+                                <div ng-repeat="response in event.responses">
+                                    <img class="img-circle" src="img/profile_small.jpg" width="15" style="margin-right: 8px; margin-bottom: 4px;"> <i>{{response.person}}</i> : {{response.message}}
+                                </div>
+                                
+                                <div ng-show="event.$enteringResponse" class="animate-show">
+                                    <textarea class="form-control" placeholder="Geef je reactie in..."></textarea>
+                                    <div style="margin-top: 4px">
+                                        <a class="btn btn-primary btn-xs" ng-click="event.$enteringResponse = false">Sturen</a>
+                                        <a class="btn btn-primary btn-xs" ng-click="event.$enteringResponse = false">Annuleren</a>
+                                    </div>
+                                </div>
+                                <div ng-show="event.$enteringTransaction">
+                                    <small>
+                                        Ik stuur <input type="text" size="3"></text> duimkes naar {{event.person}}. 
+                                        <a class="btn btn-primary btn-xs" ng-click="event.$enteringTransaction = false">Sturen</a>
+                                        <a class="btn btn-primary btn-xs" ng-click="event.$enteringTransaction = false">Annuleren</a>
+                                    </small>
+                                </div>
+                                
+                                <div>
+                                    <a ng-click="event.$enteringResponse = true; event.$enteringTransaction = false;">Reageren</a>&nbsp;
+                                    <!--<a ng-click="event.$read = true">Gelezen</a>&nbsp;-->
+                                    <span style="margin-left: 8px">
+                                        <a ng-click="event.$enteringTransaction = true; event.$enteringResponse = false;">Waarderen</a>
+                                    </span>
+                                </div>
+                            </div>
+                        </small>
+                    </div>
+                </div>
+            </div> <!-- ng-repeat type: message demand -->
+        
+            <h3>Aanbod</h3>
+            <div ng-repeat="event in c.events">                
+                <div ng-show="event.type === 'message' && event.offer">
+                    <div class="lets-message" ng-hide="event.$read">
+                        <img alt="image" class="img-circle pull-left" ng-src="{{event.img}}" width="40" style="margin-right: 8px">
+
+                        <div class="media-body ">
+                            <small class="pull-right text-navy">1 minuut geleden</small>
+                            <strong>({{event.person}})</strong> <b>{{event.title}}</b> - {{event.message}}
+                        </div>
+
+                        <small class="text-muted">
+                            <div class="lets-message-responses">
+                                <div ng-repeat="response in event.responses">
+                                    <img class="img-circle" src="img/profile_small.jpg" width="15" style="margin-right: 8px; margin-bottom: 4px;"> <i>{{response.person}}</i> : {{response.message}}
+                                </div>
+                                
+                                <div ng-show="event.$enteringResponse" class="animate-show">
+                                    <textarea class="form-control" placeholder="Geef je reactie in..."></textarea>
+                                    <div style="margin-top: 4px">
+                                        <a class="btn btn-primary btn-xs" ng-click="event.$enteringResponse = false">Sturen</a>
+                                        <a class="btn btn-primary btn-xs" ng-click="event.$enteringResponse = false">Annuleren</a>
+                                    </div>
+                                </div>
+                                <div ng-show="event.$enteringTransaction">
+                                    <small>
+                                        Ik stuur <input type="text" size="3"></text> duimkes naar {{event.person}}. 
+                                        <a class="btn btn-primary btn-xs" ng-click="event.$enteringTransaction = false">Sturen</a>
+                                        <a class="btn btn-primary btn-xs" ng-click="event.$enteringTransaction = false">Annuleren</a>
+                                    </small>
+                                </div>
+                                
+                                <div>
+                                    <a ng-click="event.$enteringResponse = true; event.$enteringTransaction = false;">Reageren</a>&nbsp;
+                                    <!--<a ng-click="event.$read = true">Gelezen</a>&nbsp;-->
+                                    <span style="margin-left: 8px">
+                                        <a ng-click="event.$enteringTransaction = true; event.$enteringResponse = false;">Waarderen</a>
+                                    </span>
+                                </div>
+                            </div>
+                        </small>
+                    </div>
+                </div>
+            </div> <!-- ng-repeat type: message offer -->
+
+        </div>
+        <div class="col-lg-4">
+            <div ng-repeat="event in c.events">
+                <div ng-show="event.type == 'person'">
+                    <div class="widget-head-color-box navy-bg p-lg text-center">
+                        <div class="container-fluid">
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <div class="m-b-md">
+                                        <h2 class="font-bold no-margins">
+                                            Bart De Backer
+                                        </h2>
+                                        <small>Nieuw Lid</small>
+                                    </div>
+                                    <img src="img/a4.jpg" class="img-circle circle-border m-b-md" alt="profile">
+                                </div>
+                                <div class="col-lg-6">
+                                    <div>
+                                        <p>Hobbies : Informatica, Duurzaam leven, FabLab Dendermonde.</p>
+                                    </div>
+
+                                    <div>
+                                        <span>(Aanbod) Kinderoppas.</span>
+                                    </div>
+                                    <div>
+                                        <span>(Vraag) Hulp in de tuin.</span>
+                                    </div>
+                                    <div>
+                                        <span>(Aanbod) Vegetarische Lasagne.</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+                </div>
+            </div> <!-- repeat type: persons -->
+
+            <div ng-repeat="event in c.events">
+                <div ng-show="event.type == 'event'">
+                    <div class="widget lazur-bg">
+                        <h2>{{event.date}} : {{event.title}}</h2>
+                        <p>{{event.message}}</p>
+                        <div><img class="img-circle" src="img/a7.jpg" width="30" style="margin-right: 8px">{{event.person}}</div>
+                        <div><a>Inschrijven</a></div>
+                    </div> 
+                </div> <!-- type: event -->
+            </div> <!-- repeat type: persons -->
+
+            <div ng-repeat="event in c.events">
+                <div ng-show="event.type === 'transaction'">
+                    <div class="widget lazur-bg" ui-sref="app.transactions" style="cursor: pointer;">
+                        <span class="fa fa-thumbs-up m-r-xs"> ({{event.from}} aan {{event.to}}) {{event.description}}</span>
+                    </div>
+                </div>
+            </div> <!-- repeat type: transactions -->
+
+            <div class="widget yellow-bg p-lg text-center" style="cursor: pointer;" ui-sref="app.transactions">
+                <div class="m-b-md">
+                    <i class="fa fa-thumbs-up fa-4x"></i>
+
+                    <h1 class="m-xs">32</h1>
+
+                    <h3 class="font-bold no-margins">
+                    Transacties in april !
+                </h3>
+                </div>
+            </div>
+            <div class="widget yellow-bg p-lg text-center">
+                <div class="m-b-md">
+                    <i class="fa fa-warning fa-4x"></i>
+
+                    <h1 class="m-xs">Saldo</h1>
+
+                    <small>Je hebt de maximum grens (bijna) bereikt.</small>
+                </div>
+            </div>
+        </div>
+    </div>
+
 </div>
 <!-- animation wrapper -->
