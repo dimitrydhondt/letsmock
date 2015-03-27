@@ -261,43 +261,35 @@
             <div ng-repeat="event in c.events">
                 <div ng-show="event.type == 'person'">
                     <div class="widget-head-color-box navy-bg p-lg text-center">
-                        <div class="container-fluid">
-                            <div class="row">
-                                <div class="col-lg-6">
-                                    <div class="m-b-md">
-                                        <h2 class="font-bold no-margins">
-                                            Bart De Backer
-                                        </h2>
-                                        <small>Nieuw Lid</small>
-                                    </div>
-                                    <img src="img/a4.jpg" class="img-circle circle-border m-b-md" alt="profile">
-                                </div>
-                                <div class="col-lg-6">
-                                    <div>
-                                        <p>Hobbies : Informatica, Duurzaam leven, FabLab Dendermonde.</p>
-                                    </div>
+                        <div class="m-b-md">
+                            <h2 class="font-bold no-margins">
+                                Bart De Backer
+                            </h2>
+                            <small>Nieuw Lid</small>
+                        </div>
+                        <img src="img/a4.jpg" class="img-circle circle-border m-b-md" alt="profile">
 
-                                    <div>
-                                        <span>(Aanbod) Kinderoppas.</span>
-                                    </div>
-                                    <div>
-                                        <span>(Vraag) Hulp in de tuin.</span>
-                                    </div>
-                                    <div>
-                                        <span>(Aanbod) Vegetarische Lasagne.</span>
-                                    </div>
-                                </div>
-                            </div>
+                        <div>
+                            <p>Hobbies : Informatica, Duurzaam leven, FabLab Dendermonde.</p>
+                        </div>
+
+                        <div>
+                            <span>(Aanbod) Kinderoppas.</span>
+                        </div>
+                        <div>
+                            <span>(Vraag) Hulp in de tuin.</span>
+                        </div>
+                        <div>
+                            <span>(Aanbod) Vegetarische Lasagne.</span>
                         </div>
                     </div>
-                    <br>
                 </div>
             </div> <!-- repeat type: persons -->
 
             <div ng-repeat="event in c.events">
                 <div ng-show="event.type == 'event'">
                     <div class="widget lazur-bg">
-                        <h2>{{event.date}} : {{event.title}}</h2>
+                        <h2><em>{{event.date}}</em> : {{event.title}}</h2>
                         <p>{{event.message}}</p>
                         <div><img class="img-circle" src="img/a7.jpg" width="30" style="margin-right: 8px">{{event.person}}</div>
                         <div><a>Inschrijven</a></div>
