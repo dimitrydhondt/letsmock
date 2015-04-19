@@ -9,7 +9,9 @@
         'oc.lazyLoad',                  // ocLazyLoad
         'ui.bootstrap',                 // Ui Bootstrap
         'pascalprecht.translate',       // Angular Translate
-        'ngAnimate'
+        'ngAnimate',
+        'ui.select', 
+        'ngSanitize'
     ])
 })();
 

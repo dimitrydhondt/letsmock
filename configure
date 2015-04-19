@@ -1,0 +1,11 @@
+#!/bin/bash
+bower install
+rm -rf public/bowerjs
+rm -rf public/bowercss
+mkdir public/bowerjs
+mkdir public/bowercss
+cp bower_components/angular-ui-select/dist/select.min.js public/bowerjs
+cp bower_components/angular-ui-select/dist/select.min.css public/bowercss
+cp bower_components/angular-sanitize/angular-sanitize.min.js public/bowerjs
+cp bower_components/angular/angular.min.js public/bowerjs
+cp bower_components/angular-ui-router/release/angular-ui-router.min.js public/bowerjs
