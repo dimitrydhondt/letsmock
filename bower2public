@@ -1,0 +1,3 @@
+#!/bin/bash
+cp bower_components/angular-ui-select/dist/select.min.js public/bowerjs
+cp bower_components/angular-ui-select/dist/select.min.css public/bowercss

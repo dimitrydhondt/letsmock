@@ -1,4 +1,5 @@
 function EventsController() {
+    this.classic = true;
     this.events = [
         {
             type: "message",

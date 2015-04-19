@@ -1,0 +1,21 @@
+{
+  "name": "letsmock",
+  "version": "0.1.0",
+  "homepage": "https://github.com/dimitrydhondt/letsmock",
+  "authors": [
+    "Dimitry D'hondt <dimitry_dhondt@yahoo.com>"
+  ],
+  "description": "Mockup of a new generation of LETS software",
+  "main": "public/index.html",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular-ui-select": "~0.11.2"
+  }
+}

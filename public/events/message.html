@@ -1,0 +1,39 @@
+                        <div class="lets-message">
+                            <img alt="image" class="img-circle pull-left" ng-src="{{event.img}}" width="40" style="margin-right: 8px">
+                            <div class="media-body ">
+                                <small class="pull-right text-navy">1 minuut geleden !</small>
+                                <strong>({{event.person}})</strong> <b>{{event.title}}</b> - {{event.message}}
+                            </div>
+
+                            <small class="text-muted">
+                                <div class="lets-message-responses">
+                                    <div ng-repeat="response in event.responses">
+                                        <img class="img-circle" src="img/profile_small.jpg" width="15" style="margin-right: 8px; margin-bottom: 4px;"> <i>{{response.person}}</i> : {{response.message}}
+                                    </div>
+
+                                    <div ng-show="event.$enteringResponse" class="animate-show">
+                                        <textarea class="form-control" placeholder="Geef je reactie in..."></textarea>
+                                        <div style="margin-top: 4px">
+                                            <a class="btn btn-primary btn-xs" ng-click="event.$enteringResponse = false">Sturen</a>
+                                            <a class="btn btn-primary btn-xs" ng-click="event.$enteringResponse = false">Annuleren</a>
+                                        </div>
+                                    </div>
+                                    <div ng-show="event.$enteringTransaction">
+                                        <small>
+                                            Ik stuur <input type="text" size="3"></text> duimkes naar {{event.person}}. 
+                                            <a class="btn btn-primary btn-xs" ng-click="event.$enteringTransaction = false">Sturen</a>
+                                            <a class="btn btn-primary btn-xs" ng-click="event.$enteringTransaction = false">Annuleren</a>
+                                        </small>
+                                    </div>
+
+                                    <div>
+                                        <a ng-click="event.$enteringResponse = true; event.$enteringTransaction = false;">Publiek Reageren</a>&nbsp;
+                                        <a ng-click="event.$enteringResponse = true; event.$enteringTransaction = false;">Privé Reageren</a>&nbsp;
+                                        <!--<a ng-click="event.$read = true">Gelezen</a>&nbsp;-->
+                                        <span style="margin-left: 8px">
+                                            <a ng-click="event.$enteringTransaction = true; event.$enteringResponse = false;">Waarderen</a>
+                                        </span>
+                                    </div>
+                                </div>
+                            </small>
+                        </div>
