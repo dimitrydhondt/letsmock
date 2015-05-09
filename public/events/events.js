@@ -121,7 +121,7 @@ function EventsController() {
         }
     ];
     
-    this.availableColors = ['Vraag','Aanbod','Eten en Drinken','Artisanaal','Gezondheid en Verzorging','Herstellingen','Huishouden','Klussen','Tuin','Vervoer','Hergebruik'];
+    this.availableColors = ['Eten en Drinken','Artisanaal','Gezondheid en Verzorging','Herstellingen','Huishouden','Klussen','Tuin','Vervoer','Hergebruik'];
     this.multipleDemo = {};
     this.multipleDemo.colors = [];
     this.request = false;

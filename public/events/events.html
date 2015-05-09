@@ -42,15 +42,55 @@
                 <br>
                 <!-- new message form -->
                 <div class="lets-message">
-                    <form role="form">
+                    <form role="form" class="form-horizontal">
                         <div class="form-group">
-                            <textarea class="form-control" placeholder="Plaats een nieuw bericht..." ng-model="c.newbody"></textarea>
+                            <div class="col-sm-12">
+                                <textarea class="form-control" placeholder="Plaats een nieuw bericht..." ng-model="c.newbody"></textarea>
+                            </div>
                         </div>
                         <div ng-show="c.newbody.length > 0">
                             <div class="form-group">
-                                <label class="col-sm-2 control-label">Titel</label>
-                                <div class="col-sm-10"><input type="text" class="form-control"></div>
+                                <label class="col-sm-3 control-label">Titel</label>
+                                <div class="col-sm-9"><input type="text" class="form-control"></div>
                             </div>
+                            <hr>
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">Goed / Dienst</label>
+                                <div class="col-sm-9">
+                                    <select class="form-control" ng-model="c.goodorservice">
+                                        <option>Kies...</option>
+                                        <option value="good">Goed</option>
+                                        <option value="service">Dienst</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">Aanbod / Vraag</label>
+                                <div class="col-sm-9">
+                                    <select class="form-control">
+                                        <option>Kies...</option>
+                                        <option value="offer">Aanbod</option>
+                                        <option value="request">Vraag</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group" ng-show="c.goodorservice == 'service'">
+                                <label class="col-sm-3 control-label">Evenement ?</label>
+                                <div class="col-sm-1">
+                                    <div class="checkbox"><label><input type="checkbox" ng-model="c.newevent"> </label></div>
+                                </div>
+                                <div class="col-sm-6 col-sm-offset-2" ng-show="c.newevent">
+                                    <datepicker ng-model="c.eventdate" min-date="minDate" show-weeks="true" class="well well-sm" custom-class="getDayClass(date, mode)"></datepicker>
+                                </div>
+                            </div>
+                            <div class="form-group" ng-show="c.goodorservice == 'good'">
+                                <label class="col-sm-3 control-label">Uitlenen ?</label>
+                                <div class="col-sm-1">
+                                    <div class="checkbox"><label><input type="checkbox" ng-model="c.loan"> </label></div>
+                                </div>
+                            </div>
+                            
+                            <!--
                             <div class="form-group">
                                 <div class="col-sm-6">
                                     <div class="checkbox"><label> <input type="checkbox" ng-model="c.request" ng-change="c.update()"> Vraag </label></div>
@@ -74,6 +114,7 @@
                                     </div>
                                 </div>
                             </div>
+-->
 
                                     <!--
 
@@ -82,8 +123,8 @@
                                     <div class="radio"><label> <input type="radio" value="option2" id="optionsRadios2" name="optionsRadios"> Uitlenen </label></div>                                                     <div class="radio"><label> <input type="radio" value="option2" id="optionsRadios2" name="optionsRadios"> Goederen </label></div>                                                     <div class="radio"><label> <input type="radio" value="option2" id="optionsRadios2" name="optionsRadios"> Diensten </label></div>                     -->               
                                 
                             <div class="form-group">
-                                <label class="col-sm-2 control-label">Tags</label>
-                                <div class="col-sm-10">
+                                <label class="col-sm-3 control-label">Tags</label>
+                                <div class="col-sm-9">
 <!--<input type="text" class="form-control" value="Dienst">-->
                                     <ui-select multiple ng-model="c.multipleDemo.colors" theme="bootstrap" ng-disabled="disabled" style="width: 300px;">
                                         <ui-select-match placeholder="Voeg categorieën toe...">{{$item}}</ui-select-match>
