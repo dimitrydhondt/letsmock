@@ -1,7 +1,7 @@
 .lets-message {
   background-color: #ffffff;
   color: inherit;
-  padding: 10px 10px 10px 10px;
+  padding: 15px 15px 15px 20px;
   border-color: #e7eaec;
   border-image: none;
   border-style: solid solid none;
@@ -10,5 +10,21 @@
 
 .lets-message-responses {
     padding-top: 10px;
-    padding-left: 40px;
+    padding-left: 25px;
+}
+
+.lets-message-title {
+  -moz-border-bottom-colors: none;
+  -moz-border-left-colors: none;
+  -moz-border-right-colors: none;
+  -moz-border-top-colors: none;
+  background-color: #ffffff;
+  border-color: #e7eaec;
+  border-image: none;
+  border-style: solid solid none;
+  border-width: 4px 0px 0;
+  color: inherit;
+  margin-bottom: 0;
+  padding: 14px 15px 7px;
+  height: 48px;
 }

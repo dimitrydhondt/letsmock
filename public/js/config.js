@@ -1,14 +1,5 @@
-/**
- * INSPINIA - Responsive Admin Theme
- * Copyright 2015 Webapplayers.com
- *
- * Inspinia theme use AngularUI Router to manage routing and views
- * Each view are defined as state.
- * Initial there are written state for all view in theme.
- *
- */
 function config($stateProvider, $urlRouterProvider, $ocLazyLoadProvider) {
-    $urlRouterProvider.otherwise("/app/start.html");
+    $urlRouterProvider.otherwise("/lets/start.html");
 
     $ocLazyLoadProvider.config({
         // Set to true if you want to see what and when is dynamically loaded
@@ -16,28 +7,32 @@ function config($stateProvider, $urlRouterProvider, $ocLazyLoadProvider) {
     });
 
     $stateProvider
-        .state('app', {
+        .state('lets', {
             abstract: true,
-            url: "/app",
+            url: "/lets",
             templateUrl: "common/content.html",
         })
-        .state('app.events', {
+        .state('lets.events', {
             url: '/start.html',
             templateUrl: 'events/events.html'
         })
-        .state('app.messages', {
+        .state('lets.messages', {
             url: '/messages.html',
             templateUrl: 'messages/messages.html'
         })
-        .state('app.message_detail', {
+        .state('lets.message_detail', {
             url: '/message_detail.html',
             templateUrl: 'messages/message_detail.html'
         })
-        .state('app.members', {
+        .state('lets.members', {
             url: '/members.html',
             templateUrl: 'members/members.html'
         })
-        .state('app.transactions', {
+        .state('lets.profile', {
+            url: '/profile.html',
+            templateUrl: 'profile/profile.html'
+        })
+        .state('lets.transactions', {
             url: '/transactions.html',
             templateUrl: 'transactions/transactions.html'
         });

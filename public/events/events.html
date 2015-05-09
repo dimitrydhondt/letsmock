@@ -3,6 +3,33 @@
     <!--              -->
     <!-- Classic view -->
     <!--              -->
+        <!-- search criteria -->
+        <div class="lets-message">
+
+            <div class="row">
+                <div class="col-md-8">
+                    <div class="input-group">
+                        <div class="input-group-addon"><i class="fa fa-search"></i> </div>
+                         <input type="text" placeholder="Zoeken op sleutelwoord, tag, naam plaatser, etc.." class="form-control" name="top-search" id="top-search" ng-model="c.search">
+                    </div>
+                </div> 
+                <div class="col-md-4">
+                    <div class="btn-group">
+                        <label class="btn btn-primary" ng-model="c.distance" btn-radio="2" title="max. 2 km"><i class="fa fa-male"></i></label>
+                        <label class="btn btn-primary" ng-model="c.distance" btn-radio="8" title="max. 8 km"><i class="fa fa-bicycle"></i></label>
+                        <label class="btn btn-primary" ng-model="c.distance" btn-radio="16" title="max. 16 km"><i class="fa fa-car"></i></label>
+                        <label class="btn btn-primary" ng-model="c.distance" btn-radio="50000" title="Geen beperking op afstand">Alles</i></label>
+
+                    </div>
+                    
+                    <div class="btn-group">
+                        <label class="btn btn-primary" ng-model="c.groups" btn-radio="'local'" title="LETS Regio Dendermonde"><i class="fa fa-group"></i></label>
+                        <label class="btn btn-primary" ng-model="c.groups" btn-radio="'global'" title="LETS Vlaanderen"><i class="fa fa-globe"></i></label>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
         <div class="row" ng-show="c.classic">
             <div class="col-lg-8">
                 <!--
@@ -12,6 +39,7 @@
                     <a ng-click="c.classic = !c.classic" ng-show="c.classic"> Gebeurtenissen</a>
                 </div>
                 -->
+                <br>
                 <!-- new message form -->
                 <div class="lets-message">
                     <form role="form">
@@ -24,18 +52,46 @@
                                 <div class="col-sm-10"><input type="text" class="form-control"></div>
                             </div>
                             <div class="form-group">
-                                <label class="col-sm-2 control-label">Soort</label>
-                                <div class="col-sm-10">
-                                    <div class="radio"><label> <input type="radio" checked="" value="option1" id="optionsRadios1" name="optionsRadios"> Vraag </label></div>
-                                    <div class="radio"><label> <input type="radio" value="option2" id="optionsRadios2" name="optionsRadios"> Aanbod </label></div>
-                                    <div class="radio"><label> <input type="radio" value="option2" id="optionsRadios2" name="optionsRadios"> Activiteit </label></div>
-                                    <div class="radio"><label> <input type="radio" value="option2" id="optionsRadios2" name="optionsRadios"> Uitlenen </label></div>                                    
+                                <div class="col-sm-6">
+                                    <div class="checkbox"><label> <input type="checkbox" ng-model="c.request" ng-change="c.update()"> Vraag </label></div>
+                                    <div class="checkbox"><label> <input type="checkbox" ng-model="c.offer" ng-change="c.update()"> Aanbod </label></div>
+                                </div>  
+
+                                <div class="col-sm-6">
+                                    <div class="checkbox"><label> <input type="checkbox" ng-model="c.service" ng-change="c.update()"> Diensten </label></div>
+                                    <div class="checkbox"><label> <input type="checkbox" ng-model="c.good" ng-change="c.update()"> Goederen </label></div>
+                                    <div class="checkbox" ng-show="c.good"><label> <input type="checkbox" ng-model="c.borrow" ng-change="c.update()"> Uitlenen </label></div>
+
+                                    <div class="checkbox"><label> <input type="checkbox" ng-model="c.activity" ng-change="c.update()"> Activiteit </label></div>
                                 </div>
-                                
                             </div>
+
+                            <div class="form-group" ng-show="c.activity">
+                                <label class="col-sm-2 control-label">Datum</label>
+                                <div class="col-sm-10">
+                                    <div>
+                                      <input type="text" class="form-control" datepicker-popup="{{format}}" ng-model="dt" is-open="opened" min-date="minDate" max-date="'2015-06-22'" datepicker-options="dateOptions" date-disabled="disabled(date, mode)" ng-required="true" close-text="Close" />
+                                    </div>
+                                </div>
+                            </div>
+
+                                    <!--
+
+                                    <div class="checkbox"><label> <input type="checkbox" checked="c.aanbod()" value="true" > Aanbod </label></div>
+                                    <div class="checkbox"><label> <input type="checkbox" value="option2" id="optionsRadios2" name="optionsRadios"> Activiteit </label></div>
+                                    <div class="radio"><label> <input type="radio" value="option2" id="optionsRadios2" name="optionsRadios"> Uitlenen </label></div>                                                     <div class="radio"><label> <input type="radio" value="option2" id="optionsRadios2" name="optionsRadios"> Goederen </label></div>                                                     <div class="radio"><label> <input type="radio" value="option2" id="optionsRadios2" name="optionsRadios"> Diensten </label></div>                     -->               
+                                
                             <div class="form-group">
                                 <label class="col-sm-2 control-label">Tags</label>
-                                <div class="col-sm-10"><input type="text" class="form-control" value="Dienst"></div>
+                                <div class="col-sm-10">
+<!--<input type="text" class="form-control" value="Dienst">-->
+                                    <ui-select multiple ng-model="c.multipleDemo.colors" theme="bootstrap" ng-disabled="disabled" style="width: 300px;">
+                                        <ui-select-match placeholder="Voeg categorieën toe...">{{$item}}</ui-select-match>
+                                        <ui-select-choices repeat="color in c.availableColors | filter:$select.search">
+                                              {{color}}
+                                        </ui-select-choices>
+                                    </ui-select>
+                                </div>
                             </div>
                             <hr/>
                             <div class="row">
@@ -47,9 +103,10 @@
                     </form>
                 </div>
                 <!-- new message form -->
-
-                <h3>Vraag</h3>
-                <div ng-repeat="event in c.events">                
+                <div class="lets-message-title">
+                    <h3>Vraag</h3>
+                </div>
+                <div ng-repeat="event in c.events | filter:c.search">                
                     <div ng-show="event.type === 'message' && event.demand">
                         <div class="lets-message" ng-hide="event.$read">
                             <img alt="image" class="img-circle pull-left" ng-src="{{event.img}}" width="40" style="margin-right: 8px">
@@ -62,7 +119,7 @@
                             <small class="text-muted">
                                 <div class="lets-message-responses">
                                     <div ng-repeat="response in event.responses">
-                                        <img class="img-circle" src="img/profile_small.jpg" width="15" style="margin-right: 8px; margin-bottom: 4px;"> <i>{{response.person}}</i> : {{response.message}}
+                                        <img class="img-circle" src="img/profile_small.jpg" width="30" style="margin-right: 8px; margin-bottom: 4px;"> <i>{{response.person}}</i> : {{response.message}}
                                     </div>
 
                                     <div ng-show="event.$enteringResponse" class="animate-show">
@@ -93,8 +150,10 @@
                     </div>
                 </div> <!-- ng-repeat type: message demand -->
 
-                <h3>Aanbod</h3>
-                <div ng-repeat="event in c.events">                
+                <div class="lets-message-title">
+                    <h3>Aanbod</h3>
+                </div>
+                <div ng-repeat="event in c.events | filter:c.search">                
                     <div ng-show="event.type === 'message' && event.offer">
                         <div class="lets-message" ng-hide="event.$read">
                             <img alt="image" class="img-circle pull-left" ng-src="{{event.img}}" width="40" style="margin-right: 8px">
@@ -107,7 +166,7 @@
                             <small class="text-muted">
                                 <div class="lets-message-responses">
                                     <div ng-repeat="response in event.responses">
-                                        <img class="img-circle" src="img/profile_small.jpg" width="15" style="margin-right: 8px; margin-bottom: 4px;"> <i>{{response.person}}</i> : {{response.message}}
+                                        <img class="img-circle" src="img/profile_small.jpg" width="30" style="margin-right: 8px; margin-bottom: 4px;"> <i>{{response.person}}</i> : {{response.message}}
                                     </div>
 
                                     <div ng-show="event.$enteringResponse" class="animate-show">
@@ -146,7 +205,7 @@
                         <div class="widget-head-color-box navy-bg p-lg text-center">
                             <div class="m-b-md">
                                 <h2 class="font-bold no-margins">
-                                    Bart De Backer
+                                    {{event.firstname}} {{event.lastname}}
                                 </h2>
                                 <small>Nieuw Lid</small>
                             </div>
@@ -156,14 +215,10 @@
                                 <p>Hobbies : Informatica, Duurzaam leven, FabLab Dendermonde.</p>
                             </div>
 
-                            <div>
-                                <span>(Aanbod) Kinderoppas.</span>
-                            </div>
-                            <div>
-                                <span>(Vraag) Hulp in de tuin.</span>
-                            </div>
-                            <div>
-                                <span>(Aanbod) Vegetarische Lasagne.</span>
+                            <div ng-repeat="item in event.messages">
+                                <div>
+                                <span>{{item.title}}</span>
+                                </div>
                             </div>
                         </div>
                     </div>

@@ -1,0 +1,114 @@
+<div ng-controller="EventsController as c">
+    <div class="wrapper wrapper-content">
+        <div class="row animated fadeInRight">
+            <div class="col-md-4">
+                <div class="lets-message-title">
+                    <h3>Profiel</h3>
+                </div>
+                <div class="lets-message">
+                    <div>
+                        <div class="text-center">
+                            <img alt="image" class="img-circle" src="img/a5.jpg" width=240>
+                        </div>
+                        <div>
+                            <h4><strong>Nathalie Gols</strong></h4>
+
+                            <address>
+                                Kleine streepstraat 25<br>
+                                9200 Grembergen<br>
+                                <abbr title="Phone">Tel:</abbr> 052 77 88 33<br>
+                            </address>
+                            
+                            <h5>Hobbies</h5>
+
+                            <ul>
+                                <li>Tuinieren</li>
+                                <li>Ambachtelijke aperieven maken</li>
+                                <li>Cooking, but only with plant-power !</li>
+                            </ul>
+
+                            <div class="row m-t-lg">
+                                <div class="col-md-6">
+                                    <h5><i class="fa fa-thumbs-up"></i><strong> 169</strong> Transacties</h5>
+                                </div>
+                                <div class="col-md-6">
+                                    <h5><strong>45</strong> Duimkes</h5>
+                                </div>
+                            </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <button type="button" class="btn btn-primary btn-sm"><i class="fa fa-envelope"></i> Contacteren</button>
+                                        <button type="button" class="btn btn-primary btn-sm"><i class="fa fa-thumbs-up"></i> Waarderen</button>
+                                    </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-8">
+                <div class="lets-message-title">
+                    <h3>Berichten</h3>
+                </div>
+                <div ng-repeat="event in c.events">                
+                    <div ng-show="event.person === 'Nathalie Gols'">
+                        <div class="lets-message" ng-hide="event.$read">
+                            <img alt="image" class="img-circle pull-left" ng-src="{{event.img}}" width="40" style="margin-right: 8px">
+
+                            <div class="media-body ">
+                                <small class="pull-right text-navy">1 minuut geleden</small>
+                                <strong>({{event.person}})</strong> <b>{{event.title}}</b> - {{event.message}}
+                            </div>
+
+                            <small class="text-muted">
+                                <div class="lets-message-responses">
+                                    <div ng-repeat="response in event.responses">
+                                        <img class="img-circle" src="img/profile_small.jpg" width="30" style="margin-right: 8px; margin-bottom: 4px;"> <i>{{response.person}}</i> : {{response.message}}
+                                    </div>
+
+                                    <div ng-show="event.$enteringResponse" class="animate-show">
+                                        <textarea class="form-control" placeholder="Geef je reactie in..."></textarea>
+                                        <div style="margin-top: 4px">
+                                            <a class="btn btn-primary btn-xs" ng-click="event.$enteringResponse = false">Sturen</a>
+                                            <a class="btn btn-primary btn-xs" ng-click="event.$enteringResponse = false">Annuleren</a>
+                                        </div>
+                                    </div>
+                                    <div ng-show="event.$enteringTransaction">
+                                        <small>
+                                            Ik stuur <input type="text" size="3"></text> duimkes naar {{event.person}}. 
+                                            <a class="btn btn-primary btn-xs" ng-click="event.$enteringTransaction = false">Sturen</a>
+                                            <a class="btn btn-primary btn-xs" ng-click="event.$enteringTransaction = false">Annuleren</a>
+                                        </small>
+                                    </div>
+
+                                    <div>
+                                        <a ng-click="event.$enteringResponse = true; event.$enteringTransaction = false;">Publiek Reageren</a>&nbsp;
+                                        <a ng-click="event.$enteringResponse = true; event.$enteringTransaction = false;">Privé Reageren</a>&nbsp;
+                                        <span style="margin-left: 8px">
+                                            <a ng-click="event.$enteringTransaction = true; event.$enteringResponse = false;">Waarderen</a>
+                                        </span>
+                                    </div>
+                                </div>
+                            </small>
+                        </div>
+                    </div>
+                </div> <!-- ng-repeat type: message demand -->
+
+                <hr>
+                <div class="lets-message-title">
+                    <h3>Waarderingen</h3>
+                </div>
+                <div class="lets-message">
+                    <table class="table table-condensed">
+                        <tr ng-repeat="txn in c.transactions">
+                            <td>{{txn.from}}</td>
+                            <td>aan</td>
+                            <td>{{txn.to}}</td>
+                            <td>{{txn.message}}</td>
+                            <td class="text-right">{{txn.amount}}</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

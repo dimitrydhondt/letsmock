@@ -1,11 +1,4 @@
 function MainController() {
-    this.items = [
-        {
-            type: "message",
-            offer: true,
-            title: ""
-        }
-        ];
 };
 
 angular

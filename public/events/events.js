@@ -1,5 +1,10 @@
 function EventsController() {
     this.classic = true;
+    
+    this.keywords='';
+    this.distance=8;
+    this.groups='local';
+    
     this.events = [
         {
             type: "message",
@@ -48,7 +53,17 @@ function EventsController() {
             ]
         },
         {
-            type: "person"
+            type: "person",
+            firstname: "Ivo",
+            lastname: "van den Maagdenberg",
+            messages: [
+                {
+                    title: "(Vraag) Eten soms"
+                },
+                {
+                    title: "(Aanbod) herstellen van JOUW fiets !"
+                }
+            ]
         },
         {
             type: "message",
@@ -74,6 +89,59 @@ function EventsController() {
             message: "Ik heb, zoals elk voorjaar, een overproductie aan zelfgekweekte bio-asperges. Wie wil er een bussel ? Ik kan ze komen brengen (per fietd). 5 duimkes / bussel.",
         },
     ];
+    
+    this.transactions = [
+        {
+            from: "Steven Plas",
+            to: "Nathalie Gols",
+            amount: 50,
+            message: "Bedankt voor de veggie lasagne",
+            timestamp: "2015-01-01T11:01:01"
+        },
+        {
+            from: "Mike Torck",
+            to: "Sabine De Waele",
+            amount: 10,
+            message: "Bedankt om Senne naar de voetbal te brengen :-)",
+            timestamp: "2015-02-01T16:04:04"
+        },
+        {
+            from: "Steven Plas",
+            to: "Sabine De Waele",
+            amount: 5,
+            message: "Knolselder plantjes",
+            timestamp: "2015-02-14T09:55:00"
+        },
+        {
+            from: "Nathalie Gols",
+            to: "Steven Plas",
+            amount: 200,
+            message: "Tuinwerken",
+            timestamp: "2015-03-04T11:34:01"
+        }
+    ];
+    
+    this.availableColors = ['Vraag','Aanbod','Eten en Drinken','Artisanaal','Gezondheid en Verzorging','Herstellingen','Huishouden','Klussen','Tuin','Vervoer','Hergebruik'];
+    this.multipleDemo = {};
+    this.multipleDemo.colors = [];
+    this.request = false;
+    this.update = function() {
+        sync = function(array, item,shouldBePresent) {
+            if(shouldBePresent) {
+                if(array.indexOf(item) == -1) {
+                    array.push(item);
+                }
+            } else {
+                var index = array.indexOf(item);
+                if(index != -1) {
+                    array.splice(index,1);
+                }
+            }
+            
+        }
+        sync(this.multipleDemo.colors, "Vraag",this.request);
+        sync(this.multipleDemo.colors,"Aanbod",this.offer);        
+    };    
 };
 
 angular
