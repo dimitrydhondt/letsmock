@@ -99,7 +99,7 @@
                 </div>
                 <div class="lets-message">
                     <table class="table table-condensed">
-                        <tr ng-repeat="txn in c.transactions">
+                        <tr ng-repeat="txn in c.transactions" ng-hide="txn.from != 'Nathalie Gols' && txn.to != 'Nathalie Gols'">
                             <td>{{txn.from}}</td>
                             <td>aan</td>
                             <td>{{txn.to}}</td>

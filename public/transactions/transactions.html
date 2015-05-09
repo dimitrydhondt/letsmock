@@ -1,29 +1,40 @@
 <div ng-controller="EventsController as c">
-<div class="wrapper wrapper-content">
-<div class="row">
-<div class="col-lg-12 animated fadeInRight">
+    <div class="wrapper wrapper-content">
+        <div class="lets-message">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="input-group">
+                        <div class="input-group-addon"><i class="fa fa-search"></i> </div>
+                         <input type="text" placeholder="Zoeken op naam, beschrijving, etc.." class="form-control" name="top-search" id="top-search" ng-model="c.search">
+                    </div>
+                </div> 
+            </div>
+        </div>
+        <br>
 
-<div class="lets-message-title">
-    <h3>
-        Waarderingen
-    </h3>
-</div>
-<div class="lets-message">
-    <table class="table table-condensed">
-        <tbody >
-        <tr ng-repeat="txn in c.transactions">
-            <td>{{txn.timestamp | date:'MM/dd/yyyy H:mm'}}</td>
-            <td>{{txn.from}}</td>
-            <td>aan</td>
-            <td>{{txn.to}}</td>
-            <td>{{txn.message}}</td>
-            <td></td>
-            <td class="text-right">{{txn.amount}}</td>
-        </tr>
-        </tbody>
-    </table>
-</div>
-</div>
-</div>
-</div>
+        <div class="row">
+            <div class="col-lg-12 animated fadeInRight">
+                <div class="lets-message-title">
+                    <h3>
+                        Waarderingen
+                    </h3>
+                </div>
+                <div class="lets-message">
+                    <table class="table table-condensed">
+                        <tbody >
+                        <tr ng-repeat="txn in c.transactions">
+                            <td>{{txn.timestamp | date:'MM/dd/yyyy H:mm'}}</td>
+                            <td>{{txn.from}}</td>
+                            <td>aan</td>
+                            <td>{{txn.to}}</td>
+                            <td>{{txn.message}}</td>
+                            <td></td>
+                            <td class="text-right">{{txn.amount}}</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
