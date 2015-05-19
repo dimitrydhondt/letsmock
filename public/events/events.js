@@ -4,11 +4,12 @@ function EventsController() {
     this.keywords='';
     this.distance=8;
     this.groups='local';
+    this.search='INIT';
     
     this.events = [
         {
             type: "message",
-            person: "Sabine De Waele",
+            person: "Sabine De Vlaming",
             img: "img/a3.jpg",
             offer: true,
             title: "Rabarberchutney",
@@ -22,7 +23,7 @@ function EventsController() {
         },
         {
             type: "message",
-            person: "Mike Torck",
+            person: "Mikey Trock",
             img: "img/a1.jpg",
             demand : true,
             title: "Wie kent windows (versie 8) goed ?",
@@ -58,7 +59,7 @@ function EventsController() {
             lastname: "van den Maagdenberg",
             messages: [
                 {
-                    title: "(Vraag) Eten soms"
+                    title: "(Vraag) Wie kookt af en toe een maaltijd mee ?"
                 },
                 {
                     title: "(Aanbod) herstellen van JOUW fiets !"
@@ -75,7 +76,7 @@ function EventsController() {
         },
         {
             type: "event",
-            person: "Rita Strooband",
+            person: "Rita Millet",
             date: "4 april 2015",
             title: "Indisch Veggie Etentje",
             message: "Wie heeft er zin om mee aan te schuiven aan ons vegetarisch Indisch buffet ? Er is plaats voor maximum 16 personen."
@@ -92,29 +93,29 @@ function EventsController() {
     
     this.transactions = [
         {
-            from: "Steven Plas",
+            from: "Steve Buytinck",
             to: "Nathalie Gols",
             amount: 50,
             message: "Bedankt voor de veggie lasagne",
             timestamp: "2015-01-01T11:01:01"
         },
         {
-            from: "Mike Torck",
-            to: "Sabine De Waele",
+            from: "Mikey Trock",
+            to: "Sabine De Vlaming",
             amount: 10,
             message: "Bedankt om Senne naar de voetbal te brengen :-)",
             timestamp: "2015-02-01T16:04:04"
         },
         {
-            from: "Steven Plas",
-            to: "Sabine De Waele",
+            from: "Steve Buytinck",
+            to: "Sabine De Vlaming",
             amount: 5,
             message: "Knolselder plantjes",
             timestamp: "2015-02-14T09:55:00"
         },
         {
             from: "Nathalie Gols",
-            to: "Steven Plas",
+            to: "Steve Buytinck",
             amount: 200,
             message: "Tuinwerken",
             timestamp: "2015-03-04T11:34:01"

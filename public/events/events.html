@@ -58,7 +58,6 @@
                                 <label class="col-sm-3 control-label">Goed / Dienst</label>
                                 <div class="col-sm-9">
                                     <select class="form-control" ng-model="c.goodorservice">
-                                        <option>Kies...</option>
                                         <option value="good">Goed</option>
                                         <option value="service">Dienst</option>
                                     </select>
@@ -67,8 +66,7 @@
                             <div class="form-group">
                                 <label class="col-sm-3 control-label">Aanbod / Vraag</label>
                                 <div class="col-sm-9">
-                                    <select class="form-control">
-                                        <option>Kies...</option>
+                                    <select class="form-control" ng-model="c.offerorrequest">
                                         <option value="offer">Aanbod</option>
                                         <option value="request">Vraag</option>
                                     </select>
@@ -89,43 +87,10 @@
                                     <div class="checkbox"><label><input type="checkbox" ng-model="c.loan"> </label></div>
                                 </div>
                             </div>
-                            
-                            <!--
-                            <div class="form-group">
-                                <div class="col-sm-6">
-                                    <div class="checkbox"><label> <input type="checkbox" ng-model="c.request" ng-change="c.update()"> Vraag </label></div>
-                                    <div class="checkbox"><label> <input type="checkbox" ng-model="c.offer" ng-change="c.update()"> Aanbod </label></div>
-                                </div>  
-
-                                <div class="col-sm-6">
-                                    <div class="checkbox"><label> <input type="checkbox" ng-model="c.service" ng-change="c.update()"> Diensten </label></div>
-                                    <div class="checkbox"><label> <input type="checkbox" ng-model="c.good" ng-change="c.update()"> Goederen </label></div>
-                                    <div class="checkbox" ng-show="c.good"><label> <input type="checkbox" ng-model="c.borrow" ng-change="c.update()"> Uitlenen </label></div>
-
-                                    <div class="checkbox"><label> <input type="checkbox" ng-model="c.activity" ng-change="c.update()"> Activiteit </label></div>
-                                </div>
-                            </div>
-
-                            <div class="form-group" ng-show="c.activity">
-                                <label class="col-sm-2 control-label">Datum</label>
-                                <div class="col-sm-10">
-                                    <div>
-                                      <input type="text" class="form-control" datepicker-popup="{{format}}" ng-model="dt" is-open="opened" min-date="minDate" max-date="'2015-06-22'" datepicker-options="dateOptions" date-disabled="disabled(date, mode)" ng-required="true" close-text="Close" />
-                                    </div>
-                                </div>
-                            </div>
--->
-
-                                    <!--
-
-                                    <div class="checkbox"><label> <input type="checkbox" checked="c.aanbod()" value="true" > Aanbod </label></div>
-                                    <div class="checkbox"><label> <input type="checkbox" value="option2" id="optionsRadios2" name="optionsRadios"> Activiteit </label></div>
-                                    <div class="radio"><label> <input type="radio" value="option2" id="optionsRadios2" name="optionsRadios"> Uitlenen </label></div>                                                     <div class="radio"><label> <input type="radio" value="option2" id="optionsRadios2" name="optionsRadios"> Goederen </label></div>                                                     <div class="radio"><label> <input type="radio" value="option2" id="optionsRadios2" name="optionsRadios"> Diensten </label></div>                     -->               
                                 
                             <div class="form-group">
                                 <label class="col-sm-3 control-label">Tags</label>
                                 <div class="col-sm-9">
-<!--<input type="text" class="form-control" value="Dienst">-->
                                     <ui-select multiple ng-model="c.multipleDemo.colors" theme="bootstrap" ng-disabled="disabled" style="width: 300px;">
                                         <ui-select-match placeholder="Voeg categorieën toe...">{{$item}}</ui-select-match>
                                         <ui-select-choices repeat="color in c.availableColors | filter:$select.search">
@@ -134,10 +99,10 @@
                                     </ui-select>
                                 </div>
                             </div>
-                            <hr/>
                             <div class="row">
-                                <div class="col-sm-offset-2 col-sm-10" style="padding-top: 10px; padding-bottom: 10px; padding-left: 25px;">
-                                    <a class="btn btn-xs btn-primary" type="submit" ng-click="c.newbody = ''">Plaatsen</a>
+                                <div class="col-sm-offset-8 col-sm-4">
+                                    <a class="btn btn-primary" type="submit" ng-click="c.newbody = ''">Plaatsen</a>
+                                    <a class="btn btn-primary" type="submit" ng-click="c.newbody = ''">Annuleren</a>    
                                 </div>
                             </div>
                         </div><!-- show if body filled in -->
