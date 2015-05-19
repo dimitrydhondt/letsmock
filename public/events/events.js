@@ -4,7 +4,7 @@ function EventsController() {
     this.keywords='';
     this.distance=8;
     this.groups='local';
-    this.search='INIT';
+    this.search='';
     
     this.events = [
         {
