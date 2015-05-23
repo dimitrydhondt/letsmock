@@ -1,0 +1,49 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.22823.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "public", "public\", "{9D63CFE6-3DC2-4826-BA4D-7AA312FC7F0A}"
+	ProjectSection(WebsiteProperties) = preProject
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.0"
+		Debug.AspNetCompiler.VirtualPath = "/localhost_54005"
+		Debug.AspNetCompiler.PhysicalPath = "public\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_54005\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/localhost_54005"
+		Release.AspNetCompiler.PhysicalPath = "public\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_54005\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		VWDPort = "54005"
+		SlnRelativePath = "public\"
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "letsmock", "letsmock", "{330A9B17-520E-4E8B-98EE-B02B3C1A58AE}"
+	ProjectSection(SolutionItems) = preProject
+		bower.json = bower.json
+		configure = configure
+		configure.bat = configure.bat
+		README.md = README.md
+		run = run
+		s3delete = s3delete
+		s3sync = s3sync
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9D63CFE6-3DC2-4826-BA4D-7AA312FC7F0A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9D63CFE6-3DC2-4826-BA4D-7AA312FC7F0A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
