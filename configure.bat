@@ -1,4 +1,5 @@
-REM bower install
+REM bower 
+REM check why batch file does not continue here
 del /F public\bowerjs\select.min.js
 del /F public\bowercss\select.min.css
 del /F public\bowerjs\angular-sanitize.min.js
